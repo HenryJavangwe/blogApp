@@ -21,4 +21,4 @@ app.get('/', (req, res)=>{
     }]
     res.render('index', {articles: articles});
 })
-app.listen(5000)
+app.listen(5000) 
