@@ -49,6 +49,13 @@
                 New Post
             </a>
         </section>
+        <section>
+            <% articles.forEach((article) => {%>
+                <div class="card mt-4">
+                    <%= article.title%>
+                </div>
+            <% }) %>
+        </section>
     </main>
     <footer class="container">
         footer
