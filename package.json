@@ -1,0 +1,28 @@
+{
+  "name": "blogApp",
+  "version": "1.0.0",
+  "description": "Coding challenge - Creating a blog application in Node and express and using Bootstrap for styling. # Setup: * Make sure you have node and express installed on your computer. * Fork. (If you want a different name then clone first, create your own repo and copy my files in there) * Clone repo to local. * Open terminal in newly cloned file. * run: express --view=ejs to install modules and follow the prompts to install dependencies and start the app.",
+  "main": "index.js",
+  "scripts": {
+    "devStart": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/HenryJavangwe/blogApp.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/HenryJavangwe/blogApp/issues"
+  },
+  "homepage": "https://github.com/HenryJavangwe/blogApp#readme",
+  "dependencies": {
+    "ejs": "^3.1.2",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.11"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.3"
+  }
+}

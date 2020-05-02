@@ -8,8 +8,8 @@ Coding challenge - Creating a blog application in Node and express and using Boo
 * run: express --view=ejs to install modules and follow the prompts to install dependencies and start the app.
 
 ## To start the app and its database component:
-* DB> json-server --watch db.json -p 3000
+* DB> json-server --watch db.json -p 5000
 * APP> nodemon -start
 
 ## View the app:
-Browser: localhost:3000
+Browser: localhost:5000
