@@ -5,12 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sparks visual Arts</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="/css/main.css">
+    <script async src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="container-fluid navbar navbar-expand-lg navbar-dark bg-dark">
         <nav class="container ">
-        <a class="navbar-brand" href="#">
+        <a class="navbar-brand" href="/">
             <span>
                 <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
                     width="48" height="48"
@@ -44,21 +45,38 @@
     <main class="container">
         <h1 class="my-4">The Home Of visual Arts </h1>
         <section>
-            <a href="/articles/new" class="mb-4">
+            <a href="/articles/newArticle" class="mb-4">
                 <img src="https://img.icons8.com/ios-glyphs/30/000000/add.png"/>
                 New Post
             </a>
         </section>
         <section>
             <% articles.forEach((article) => {%>
-                <div class="card mt-4">
-                    <%= article.title%>
+                <div class="card my-5">
+                    <div class="card-body">
+                        <h3 class="card-title my-4">
+                            <%= article.title%>
+                        </h3>
+                        <h5 class="card-subtitle text-muted my-3">
+                            <%= article.author%>
+                        </h5>
+                        <div class="card-text my-3">
+                            <%= article.content%>
+                        </div>
+                        <div class="row my-3">
+                            <div class="img img-fluid card-text col-lg-6 col-sm-12"><img src="<%- article.imageUrl1%>" alt="" srcset=""></div>
+                            <div class="img img-fluid card-text col-lg-5 col-sm-12"><img src="<%- article.imageUrl2%>" alt="" srcset=""></div>
+                        </div>
+                        <small class="card-text"><%= article.createdAt.toLocaleDateString()%></small>
+                    </div>
                 </div>
             <% }) %>
         </section>
     </main>
-    <footer class="container">
-        footer
+    <footer class="container-fluid bg-dark">
+        <div class="container">
+            footer
+        </div>
     </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
