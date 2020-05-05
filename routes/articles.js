@@ -9,14 +9,16 @@ router.get('/newArticle', (req, res)=>{
     res.render('articles/newArticle', {article: new Article()})//here we render a page that we'll place inside articles and we're going to call it newArticle.
 });
 
-//every time we pass in a router with  a /articles/something, if it's not new it'll go to this id param, essentially we're redirecting the user this router.
+//every time we pass in a router with  a /articles/something, if it's not new it'll go to this id param, essentially we're redirecting the user this router.first we grab a hold of an article by article.findById(req.params.id) then we can render the page by res.render('articles/show', {article: article}). the /show is the page that'll we'll show and we're passing in an article we just created by querying the database 
+
 router.get('/:id', async (req, res)=>{
     const article = await Article.findById(req.params.id);
+    if(article == null)res.redirect('/')//if an article is not found, the user will be redirected ti the home page. 
     res.render('articles/show', {article: article})
 })
 // we'll use async because it's an async function and we'll await when we save our article.
 router.post('/', async (req, res)=> {
-    const article = new Article({
+    let article = new Article({
         title   : req.body.title,
         author  : req.body.author,
         content : req.body.content,
