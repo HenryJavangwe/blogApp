@@ -26,10 +26,10 @@ router.post('/', async (req, res)=> {
     })
 // Used the try-catch to catch and print out an error to the user if there's any and if not we'll redirect out user to a page that is at /articles/id and  
     try {
-            await article.save();
+            article = await article.save();
             res.redirect(`/articles/${article.id}`)
     } catch (error) {
-        res.render('articles/new', {article:article})//if there's an error we'll render the page that the user was just on.
+        res.render('articles/newArticle', {article:article})//if there's an error we'll render the page that the user was just on.
     }
 })
 
