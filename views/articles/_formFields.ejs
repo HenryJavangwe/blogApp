@@ -20,7 +20,7 @@
 </div>
 <div class="form-group">
     <label for="createdAt">Created At</label>
-    <input required value="<%= article.createdAt%>" type="text" name="createdAt" id="createdAt" class="form-control" placeholder="Enter Date e.g 10/04/98">
+    <input required value="<%= article.createdAt.toLocaleDateString()%>" type="text" name="createdAt" id="createdAt" class="form-control" placeholder="Enter Date e.g 10/04/98">
 </div>
 
 <button type="submit" class="btn btn-primary"> Post </button>

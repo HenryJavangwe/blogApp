@@ -44,6 +44,15 @@
     </header>
     <main class="container">
         <h1 class="my-4"> <%= article.title%> </h1>
+        <div class="text-muted">
+            <%= article.createdAt.toLocaleDateString()%>
+        </div>
+
+        <a href="/" class="my-2 btn btn-secondary">
+        All Articles
+        </a>
+
+
     </main>
     <footer class="container-fluid bg-dark">
         <div class="container">
