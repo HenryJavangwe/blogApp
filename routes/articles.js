@@ -6,7 +6,7 @@ const router = express.Router(); //this will give us a router that'll use to cre
 
 
 router.get('/newArticle', (req, res)=>{
-    res.render('articles/newArticle')//here we render a page that we'll place inside articles and we're going to call it newArticle.
+    res.render('articles/newArticle', {article: new Article()})//here we render a page that we'll place inside articles and we're going to call it newArticle.
 });
 
 
@@ -29,6 +29,7 @@ router.post('/', async (req, res)=> {
             article = await article.save();
             res.redirect(`/articles/${article.id}`)
     } catch (error) {
+        console.log(error)
         res.render('articles/newArticle', {article:article})//if there's an error we'll render the page that the user was just on.
     }
 })
