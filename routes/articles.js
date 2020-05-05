@@ -9,10 +9,10 @@ router.get('/newArticle', (req, res)=>{
     res.render('articles/newArticle', {article: new Article()})//here we render a page that we'll place inside articles and we're going to call it newArticle.
 });
 
-
-router.get('/:id', (req, res)=>{
-    //every time we pass in a router with  a /articles/something, if it's not new it'll go to this id param, essentially we're redirecting the user this router.
-
+//every time we pass in a router with  a /articles/something, if it's not new it'll go to this id param, essentially we're redirecting the user this router.
+router.get('/:id', async (req, res)=>{
+    const article = await Article.findById(req.params.id);
+    res.render('articles/show', {article: article})
 })
 // we'll use async because it's an async function and we'll await when we save our article.
 router.post('/', async (req, res)=> {
