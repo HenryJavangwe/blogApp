@@ -68,6 +68,10 @@
                             <div class="img img-fluid card-text col-lg-5 col-sm-12"><img src="<%- article.imageUrl2%>" alt="" srcset=""></div>
                         </div>
                         <small class="card-text"><%= article.createdAt.toLocaleDateString()%></small>
+
+                        <div class="my">
+                            <a href="articles/<%=article.id %>" class="btn btn-primary"> Read More</a>
+                        </div>
                     </div>
                 </div>
             <% }) %>

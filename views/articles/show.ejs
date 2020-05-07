@@ -42,25 +42,29 @@
         </div>
         </nav>
     </header>
-    <main class="container">
+    <main class="container show">
+
+        <!-- rendering the content -->
         <h1 class="my-4"> <%= article.title%> </h1>
+        <h5 class="card-subtitle text-muted my-3">
+            <%= article.author%>
+        </h5>
+        <div class="card-text my-3">
+            <%= article.content%>
+        </div>
+        <div class="row my-3">
+            <div class="img img-fluid card-text col-lg-6 col-sm-12"><img src="<%- article.imageUrl1%>" alt="" srcset=""></div>
+            <div class="img img-fluid card-text col-lg-5 col-sm-12"><img src="<%- article.imageUrl2%>" alt="" srcset=""></div>
+        </div>
         <div class="text-muted">
             <%= article.createdAt.toLocaleDateString()%>
         </div>
-
         <a href="/" class="my-2 btn btn-secondary">
             All Articles
         </a>
         <a href="/articles/edit/<%article.id%>" class="my-2 btn btn-info"> <!-- here we'll have our route to the edit page-->
             Edit
         </a>
-
-        <!-- rendering the content -->
-
-       <div class="container">
-            <%= article.content %>
-       </div>
-
     </main>
     <footer class="container-fluid bg-dark">
         <div class="container">
