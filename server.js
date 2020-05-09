@@ -6,7 +6,7 @@ const app = express()
 const path = require('path')
 
 
-mongoose.connect(`mongodb://localhost/blog`, { useNewUrlParser: true, useUnifiedTopology: true })
+mongoose.connect(`mongodb://localhost/blog`, { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true })
 
 // view engine setup
 app.set('view engine', 'ejs');
