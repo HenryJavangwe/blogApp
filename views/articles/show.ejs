@@ -53,8 +53,8 @@
             <%= article.content%>
         </div>
         <div class="row my-3">
-            <div class="img img-fluid card-text col-lg-6 col-sm-12"><img src="<%- article.imageUrl1%>" alt="" srcset=""></div>
-            <div class="img img-fluid card-text col-lg-5 col-sm-12"><img src="<%- article.imageUrl2%>" alt="" srcset=""></div>
+            <div class="img img-fluid card-text col-lg-6 col-sm-12"><img src="<%= article.imageUrl1%>" alt="" srcset=""></div>
+            <div class="img img-fluid card-text col-lg-5 col-sm-12"><img src="<%= article.imageUrl2%>" alt="" srcset=""></div>
         </div>
         <div class="text-muted">
             <%= article.createdAt.toLocaleDateString()%>

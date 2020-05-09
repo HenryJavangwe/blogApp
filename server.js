@@ -20,10 +20,11 @@ app.use('/articles', articleRouter)
 
 app.get('/', async (req, res)=>{
     let articles = await Article.find().sort({
-        createdAt: 'desc'
-    });
+        createdAt: 'desc'});
     res.render('articles/index', {articles: articles});
 })
 
 
 app.listen(5000) 
+
+// installed two new libraries --> marked and slugify and updated npm version.
