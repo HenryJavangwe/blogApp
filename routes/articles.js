@@ -43,5 +43,4 @@ router.delete('/:id', async (req, res)=>{
     res.redirect('/')//this will find the article by id, delete it and then redirect to the home page.
 })
 
-
 module.exports = router;
