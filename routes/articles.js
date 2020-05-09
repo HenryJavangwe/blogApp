@@ -11,8 +11,8 @@ router.get('/newArticle', (req, res)=>{
 
 //every time we pass in a router with  a /articles/something, if it's not new it'll go to this id param, essentially we're redirecting the user this router.first we grab a hold of an article by article.findById(req.params.id) then we can render the page by res.render('articles/show', {article: article}). the /show is the page that'll we'll show and we're passing in an article we just created by querying the database 
 
-router.get('/:id', async (req, res)=>{
-    const article = await Article.findById(req.params.id);
+router.get('/:slug', async (req, res)=>{
+    const article = await Article.findOne({ slug: req.params.slug})
     if(article == null)res.redirect('/')//if an article is not found, the user will be redirected ti the home page. 
     res.render('articles/show', {article: article})
 })
@@ -29,7 +29,7 @@ router.post('/', async (req, res)=> {
 // Used the try-catch to catch and print out an error to the user if there's any and if not we'll redirect out user to a page that is at /articles/id and  
     try {
             article = await article.save();
-            res.redirect(`/articles/${article.id}`)
+            res.redirect(`/articles/${article.slug}`)
     } catch (error) {
         console.log(error)
         res.render('articles/newArticle', {article:article})//if there's an error we'll render the page that the user was just on.
