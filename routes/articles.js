@@ -9,7 +9,7 @@ router.get('/newArticle', (req, res)=>{
     res.render('articles/newArticle', {article: new Article()})//here we render a page that we'll place inside articles and we're going to call it newArticle.
 });
 
-//every time we pass in a router with  a /articles/something, if it's not new it'll go to this id param, essentially we're redirecting the user this router.first we grab a hold of an article by article.findById(req.params.id) then we can render the page by res.render('articles/show', {article: article}). the /show is the page that'll we'll show and we're passing in an article we just created by querying the database 
+//every time we pass in a router with  a /articles/something, if it's not new it'll go to this id(now slug instead) param, essentially we're redirecting the user this router.first we grab a hold of an article by article.findById(req.params.id) then we can render the page by res.render('articles/show', {article: article}). the /show is the page that'll we'll show and we're passing in an article we just created by querying the database 
 
 router.get('/:slug', async (req, res)=>{
     const article = await Article.findOne({ slug: req.params.slug})
@@ -35,5 +35,13 @@ router.post('/', async (req, res)=> {
         res.render('articles/newArticle', {article:article})//if there's an error we'll render the page that the user was just on.
     }
 })
+
+// creating a delete router
+//its an async function since we're going to be deleteing articles, which is asynchronous
+router.delete('/:id', async (req, res)=>{
+    await Article.findByIdAndDelete(req.params.id)
+    res.redirect('/')//this will find the article by id, delete it and then redirect to the home page.
+})
+
 
 module.exports = router;
