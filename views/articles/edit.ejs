@@ -42,76 +42,60 @@
         </div>
         </nav>
     </header>
-    <main class="container show mb-5">
-        <!-- rendering the content -->
-        <h1 class="my-4"> <%= article.title%> </h1>
-        <h5 class="card-subtitle text-muted my-3">
-            <%= article.author%>
-        </h5>
-        <div class="card-text my-3">
-            <%- article.sanitizedHtml%>
-        </div>
-        <div class="row my-3">
-            <div class="img img-fluid card-text col-lg-6 col-sm-12"><img src="<%= article.imageUrl1%>" alt="" srcset=""></div>
-            <div class="img img-fluid card-text col-lg-5 col-sm-12"><img src="<%= article.imageUrl2%>" alt="" srcset=""></div>
-        </div>
-        <div class="text-muted">
-            <%= article.createdAt.toLocaleDateString()%>
-        </div>
-        <a href="/" class="my-2 btn btn-secondary">
-            All Articles
-        </a>
-        <a href="/articles/edit/<%= article.id%>" class="my-2 btn btn-info"> <!-- here we'll have our route to the edit page-->
-            Edit
-        </a>
+    <main class="container">
+        <h1 class="my-4"> Edit Away and Polish Your Craft! </h1>
+
+        <form class="my-4" action="/articles/<%= article.id%>?_method=PUT" method="POST">
+          <!-- because the form inputs for the new article and the ones for the edit article are the same, we'll not create the form fields in here directly. so we'll create one input file so we don't have to copy and paste it between our new and edit views.-->
+          <%- include ('_formFields')%>
+        </form>
     </main>
-    <footer class="container-fluid bg-dark text-light py-3 mt-5">
-        <div class="container">
-            <div>
-                <div>
-                    <ul>
-                        <li>Home</li>
-                        <li>Why us?</li>
-                        <li>Faq</li>
-                        <li>Careers</li>
-                    </ul>
-                </div>
-            </div>
+    <footer class="container-fluid bg-dark text-light py-3">
+      <div class="container">
+          <div>
+              <div>
+                  <ul>
+                      <li>Home</li>
+                      <li>Why us?</li>
+                      <li>Faq</li>
+                      <li>Careers</li>
+                  </ul>
+              </div>
+          </div>
             <!-- Lower Footer Elements -->
-            <div class="footer-bottom mt-3 ">
-                <div class="container">
-                    <div class="row " >
-                        <div class="col-md-9 align-self-center">
-                            <div class="copyright">
-                                <p class="mb-0">All Rights Reserved, Sparks Visual Arts (Pty) Ltd. </p>
-                            </div>
-                        </div>
-                        <div class="col-md-3 align-self-center">
-                            <div class="social-media">
-                                <ul class="d-flex ">
-                                    <li class="mx-2 Lower">
-                                        <a href="https://www.facebook.com/" target="_blank" class="d-flex bg-primary ">
-                                            <img src="/img/facebook.svg" alt="">
-                                        </a>
-                                    </li>
-                                    <li class="mx-2 Lower">
-                                        <a href="https://twitter.com/" target="_blank" class="d-flex">
-                                            <img src="/img/twitter.svg" alt="">
-                                        </a>
-                                    </li>
-                                    <li class="mx-2 Lower">
-                                        <a href="https://www.instagram.com/" target="_blank" class="d-flex">
-                                            <img src="/img/instagram.svg" alt="">
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="footer-bottom ">
+               <div class="container">
+                   <div class="row " >
+                       <div class="col-md-9 align-self-center">
+                           <div class="copyright">
+                               <p class="mb-0">All Rights Reserved, Sparks Visual Arts (Pty) Ltd. </p>
+                           </div>
+                       </div>
+                       <div class="col-md-3 align-self-center">
+                           <div class="social-media">
+                               <ul class="d-flex ">
+                                   <li class="mx-2 Lower">
+                                       <a href="https://web.facebook.com/The-Maven-Academy-108366197273447/?modal=admin_todo_tour" target="_blank" class="d-flex bg-primary ">
+                                           <img src="/img/facebook.svg" alt="">
+                                       </a>
+                                   </li>
+                                   <li class="mx-2 Lower">
+                                       <a href="https://twitter.com/AcademyMaven" target="_blank" class="d-flex">
+                                           <img src="/img/twitter.svg" alt="">
+                                       </a>
+                                   </li>
+                                   <li class="mx-2 Lower">
+                                       <a href="https://www.instagram.com/themavenacademysa/" target="_blank" class="d-flex">
+                                           <img src="/img/instagram.svg" alt="">
+                                       </a>
+                                   </li>
+                               </ul>
+                           </div>
+                   </div>
+               </div>
+           </div>
             </div>
-        </div>
-    </footer>
+  </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>

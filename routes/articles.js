@@ -2,13 +2,14 @@ const express = require('express');
 const Article = require('./../models/articles')
 const router = express.Router(); //this will give us a router that'll use to create views.
 
-
-
-
 router.get('/newArticle', (req, res)=>{
     res.render('articles/newArticle', {article: new Article()})//here we render a page that we'll place inside articles and we're going to call it newArticle.
 });
-
+//here we create our edit route which is similar to the new route.
+router.get('/edit/:id', async (req, res)=>{
+    const article = await  Article.findById(req.params.id)
+    res.render('articles/edit', {article: article})
+});
 //every time we pass in a router with  a /articles/something, if it's not new it'll go to this id(now slug instead) param, essentially we're redirecting the user this router.first we grab a hold of an article by article.findById(req.params.id) then we can render the page by res.render('articles/show', {article: article}). the /show is the page that'll we'll show and we're passing in an article we just created by querying the database 
 
 router.get('/:slug', async (req, res)=>{
@@ -35,6 +36,7 @@ router.post('/', async (req, res)=> {
         res.render('articles/newArticle', {article:article})//if there's an error we'll render the page that the user was just on.
     }
 })
+
 
 // creating a delete router
 //its an async function since we're going to be deleting articles, which is asynchronous
