@@ -2,6 +2,9 @@
 const mongoose = require('mongoose')
 const marked = require('marked')//allows us to convert markdown to html
 const slugify = require('slugify')//allows us to convert something like our title to a url from slug.
+const createDomPurify = require('dompurify')
+const {JSDOM} =require('jsdom')// it's in curly brackets because we only want the jsdom portion of what that returns
+const dompurify = createDomPurify(new JSDOM().window)//allows us us to create html in our dom and the purify it using the JSDOM object.
 // create a schema
 
 const articleSchema = new mongoose.Schema({
