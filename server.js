@@ -12,7 +12,7 @@ mongoose.connect(`mongodb://localhost/blog`, { useNewUrlParser: true, useUnified
 // view engine setup
 app.set('view engine', 'ejs');
 app.use(express.static(path.join(__dirname, '/public')));
-app.use(methodOverride('_method'))//whenever w eset the param _method in a form, it'll override the method. if we pass _method of DELETE, It'll allow us to call the delete router. 
+app.use(methodOverride('_method'))//whenever weset the param _method in a form, it'll override the method. if we pass _method of DELETE, It'll allow us to call the delete router. 
 
 // Register routers 
 app.use(express.urlencoded({ extended: false }));//telling the app to use that. this means we can access all our article params from the article router by accessing req.body.(here goes what you want to access e.g title or id etc.)

@@ -69,22 +69,34 @@
                         </div>
                         <small class="card-text"><%= article.createdAt.toLocaleDateString()%></small>
 
-                        <div class="my">
-                            <a href="articles/<%=article.slug %>" class="btn btn-primary"> Read More</a>
+                        <div class="d-flex">
+                            <div class="mr-2">
+                                <a href="articles/<%=article.slug %>" class="btn btn-primary"> Read More</a>
+                            </div>
+                            <!-- if we use an anchor tag for our link it'd delete every instance we have an anchor tag on our page -->
+                            <form class="d-inline" action="/articles/<%= article.id %>?_method=DELETE" method="POST">
+                            <!-- here we include the _method-->
+                            <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
                         </div>
-                        <!-- if we use an anchor tag for our link it'd delete every instance we have an anchor tag on our page -->
-                        <form action="/articles/<%= article.id %>?_method=DELETE" method="POST">
-                        <!-- here we include the _method-->
-                        <button type="submit"></button>
-                        </form>
                     </div>
                 </div>
             <% }) %>
         </section>
     </main>
-    <footer class="container-fluid bg-dark">
+    <footer class="container-fluid bg-dark text-light py-3">
         <div class="container">
-            footer
+            <div>
+                <div>
+                    <ul>
+                        <li>Home</li>
+                        <li>Why us?</li>
+                        <li>Faq</li>
+                        <li>Careers</li>
+                    </ul>
+                </div>
+            </div>
+            <div>Lower Footer</div>
         </div>
     </footer>
 
