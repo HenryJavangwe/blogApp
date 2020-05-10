@@ -37,7 +37,7 @@ router.post('/', async (req, res)=> {
 })
 
 // creating a delete router
-//its an async function since we're going to be deleteing articles, which is asynchronous
+//its an async function since we're going to be deleting articles, which is asynchronous
 router.delete('/:id', async (req, res)=>{
     await Article.findByIdAndDelete(req.params.id)
     res.redirect('/')//this will find the article by id, delete it and then redirect to the home page.

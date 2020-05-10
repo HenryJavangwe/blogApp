@@ -16,7 +16,7 @@ const articleSchema = new mongoose.Schema({
         type    : String,
         required:true
     },
-    content: {
+    markdown: {
         type    : String,
         required:true
     },
@@ -34,6 +34,10 @@ const articleSchema = new mongoose.Schema({
         type: String,
         required: true,
         unique: true
+    },
+    sanitizedHtml:{
+        type: String,
+        required: true
     }
 })
 
@@ -44,11 +48,13 @@ articleSchema.pre('validate', function (next) {
             strict: true
         })
     }
+
+    if(this.markdown){
+        this.sanitizedHtml =dompurify.sanitize( marked(this.markdown))//this converts our markdown to HTML and the purifies it to get rid of any malicious code and to escape all html characters.
+    }
     next()
 })
 
 // in-order to use this schema we need to export it
 
 module.exports =  mongoose.model('Article', articleSchema);
-
-// adding more libraries to sanitize our markdown so that people don't write malicious code that will run javascript on people's pc's. imported the libraries. const {JSDOM} =require('jsdom')-> it's in curly brackets because we only want the jsdom portion of what that returns. then created a dompurify this allows us us to create html in our dom and the purify it using the JSDOM object.g
