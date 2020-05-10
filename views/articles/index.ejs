@@ -61,7 +61,7 @@
                             <%= article.author%>
                         </h5>
                         <div class="card-text my-3">
-                            <%= article.markdown%>
+                            <%- article.sanitizedHtml%>
                         </div>
                         <div class="row my-3">
                             <div class="img img-fluid card-text col-lg-6 col-sm-12"><img src="<%- article.imageUrl1%>" alt="" srcset=""></div>

@@ -21,7 +21,7 @@ router.post('/', async (req, res)=> {
     let article = new Article({
         title   : req.body.title,
         author  : req.body.author,
-        content : req.body.content,
+        markdown : req.body.markdown,
         imageUrl1 : req.body.imageUrl1,
         imageUrl2 : req.body.imageUrl2,
         createdAt : req.body.createdAt,

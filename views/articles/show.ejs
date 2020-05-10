@@ -42,15 +42,14 @@
         </div>
         </nav>
     </header>
-    <main class="container show">
-
+    <main class="container show mb-5">
         <!-- rendering the content -->
         <h1 class="my-4"> <%= article.title%> </h1>
         <h5 class="card-subtitle text-muted my-3">
             <%= article.author%>
         </h5>
         <div class="card-text my-3">
-            <%= article.markdown%>
+            <%- article.sanitizedHtml%>
         </div>
         <div class="row my-3">
             <div class="img img-fluid card-text col-lg-6 col-sm-12"><img src="<%= article.imageUrl1%>" alt="" srcset=""></div>
@@ -79,7 +78,7 @@
                 </div>
             </div>
             <!-- Lower Footer Elements -->
-            <div class="footer-bottom ">
+            <div class="footer-bottom mt-3 ">
                 <div class="container">
                     <div class="row " >
                         <div class="col-md-9 align-self-center">
