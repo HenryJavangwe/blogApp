@@ -50,3 +50,5 @@ articleSchema.pre('validate', function (next) {
 // in-order to use this schema we need to export it
 
 module.exports =  mongoose.model('Article', articleSchema);
+
+// adding more libraries to sanitize our markdown so that people don't write malicious code that will run javascript on people's pc's. imported the libraries. const {JSDOM} =require('jsdom')-> it's in curly brackets because we only want the jsdom portion of what that returns. then created a dompurify this allows us us to create html in our dom and the purify it using the JSDOM object.g
